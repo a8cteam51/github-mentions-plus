@@ -360,12 +360,8 @@ function filterUsers(users, query) {
     user.username.toLowerCase().includes(lowerQuery) ||
     user.name.toLowerCase().includes(lowerQuery)
   );
-
-  // Calculate how many items we can show based on the 7-item total cap
-  const githubCount = githubUsernames.length;
-  const maxOurItems = Math.min(4, 7 - githubCount); // Respect both 4-item local cap and 7-item total cap
   
-  return matchingUsers.slice(0, maxOurItems);
+  return matchingUsers.slice(0, 10);
 }
 
 /**
